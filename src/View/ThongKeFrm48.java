@@ -16,6 +16,8 @@ public class ThongKeFrm48 {
         frame.setContentPane(new ThongKeFrm48().ThongKeFrm48);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -30,7 +32,7 @@ public class ThongKeFrm48 {
             public void actionPerformed(ActionEvent e) {
                 // click to redirect to ThongKeDongMHFrm48
                 close();
-                TKeDongMHFrm48 tkeDongMH = new TKeDongMHFrm48();
+                TkDongMHFrm48 tkeDongMH = new TkDongMHFrm48();
                 tkeDongMH.main(null);
             }
         });

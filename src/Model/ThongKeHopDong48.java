@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class ThongKeHopDong48 {
+public class ThongKeHopDong48 extends HopDong48 {
     private Date ngayBatDau;
     private Date ngayKetThuc;
     private float tongGiaTriVay;

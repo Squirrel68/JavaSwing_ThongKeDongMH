@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class ThongKeDongMH48 {
+public class ThongKeDongMH48 extends DongMH48 {
     private Date ngayBatDau;
     private Date ngayKetThuc;
     private int tongSoHoaDon;
@@ -11,6 +11,7 @@ public class ThongKeDongMH48 {
     }
 
     public ThongKeDongMH48(Date ngayBatDau, Date ngayKetThuc, int tongSoHoaDon, float tongDoanhThuLai) {
+        super();
         this.ngayBatDau = ngayBatDau;
         this.ngayKetThuc = ngayKetThuc;
         this.tongSoHoaDon = tongSoHoaDon;
@@ -48,4 +49,6 @@ public class ThongKeDongMH48 {
     public void setTongDoanhThuLai(float tongDoanhThuLai) {
         this.tongDoanhThuLai = tongDoanhThuLai;
     }
+
+
 }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2024 at 04:46 PM
+-- Generation Time: May 06, 2024 at 02:23 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -112,16 +112,31 @@ CREATE TABLE `tblhoadonchokh48` (
 --
 
 INSERT INTO `tblhoadonchokh48` (`ID`, `NgayPhaiThanhToan`, `TongTienThanhToan`, `TongDuNo`, `TrangThai`, `tblHopDong48ID`) VALUES
-(1, '2023-02-01', 1000000, 9000000, 1, 1),
-(2, '2023-03-01', 1000000, 8000000, 1, 1),
-(3, '2023-04-01', 1000000, 7000000, 1, 1),
-(5, '2023-05-01', 1000000, 6000000, 1, 1),
-(6, '2023-06-01', 1000000, 5000000, 1, 1),
-(7, '2023-07-01', 1000000, 4000000, 1, 1),
-(8, '2023-08-01', 1000000, 3000000, 1, 1),
-(9, '2023-09-01', 1000000, 2000000, 1, 1),
-(10, '2023-10-01', 1000000, 1000000, 1, 1),
-(11, '2023-11-01', 1000000, 0, 1, 1);
+(1, '2023-02-01', 1100000, 9900000, 1, 1),
+(2, '2023-03-01', 1100000, 8800000, 1, 1),
+(3, '2023-04-01', 1100000, 7700000, 1, 1),
+(5, '2023-05-01', 1100000, 6600000, 1, 1),
+(6, '2023-06-01', 1100000, 5500000, 1, 1),
+(7, '2023-07-01', 1100000, 4400000, 1, 1),
+(8, '2023-08-01', 1100000, 3300000, 1, 1),
+(9, '2023-09-01', 1100000, 2200000, 1, 1),
+(10, '2023-10-01', 1100000, 1100000, 1, 1),
+(11, '2023-11-01', 1100000, 0, 1, 1),
+(12, '2023-02-01', 4400000, 17600000, 1, 2),
+(13, '2023-03-01', 4400000, 13200000, 1, 2),
+(14, '2023-04-01', 4400000, 8800000, 1, 2),
+(15, '2023-04-01', 4400000, 4400000, 1, 2),
+(16, '2023-04-01', 4400000, 0, 1, 2),
+(18, '2023-03-01', 8800000, 35200000, 1, 3),
+(19, '2023-04-01', 8800000, 26400000, 1, 3),
+(20, '2023-05-01', 8800000, 17600000, 1, 3),
+(21, '2023-06-01', 8800000, 8800000, 1, 3),
+(22, '2023-03-01', 8800000, 0, 1, 3),
+(23, '2023-04-01', 11000000, 44000000, 1, 4),
+(24, '2023-04-01', 11000000, 33000000, 1, 4),
+(25, '2023-05-01', 11000000, 22000000, 1, 4),
+(26, '2023-06-01', 11000000, 11000000, 1, 4),
+(27, '2023-07-01', 11000000, 0, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -136,7 +151,7 @@ CREATE TABLE `tblhopdong48` (
   `tblDT48ID` int(10) NOT NULL,
   `tblNV48ID` int(10) NOT NULL,
   `tblKH48ID` int(10) NOT NULL,
-  `tblHoaDonChoDT48ID` int(10) NOT NULL
+  `tblHoaDonChoDT48ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -144,8 +159,10 @@ CREATE TABLE `tblhopdong48` (
 --
 
 INSERT INTO `tblhopdong48` (`ID`, `NgayKi`, `ThoiHanVay`, `tblDT48ID`, `tblNV48ID`, `tblKH48ID`, `tblHoaDonChoDT48ID`) VALUES
-(1, '2023-01-01', 12, 5, 1, 1, 1),
-(2, '2023-01-01', 12, 5, 1, 2, 1);
+(1, '2023-01-01', 10, 5, 1, 1, 1),
+(2, '2023-01-02', 5, 4, 1, 2, NULL),
+(3, '2023-02-01', 5, 4, 3, 5, NULL),
+(4, '2023-03-01', 5, 6, 2, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,7 +181,13 @@ CREATE TABLE `tblhopdong_mhdt48` (
 --
 
 INSERT INTO `tblhopdong_mhdt48` (`ID`, `tblMH_DT48ID`, `tblHopDong48ID`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 2),
+(4, 4, 3),
+(5, 5, 3),
+(6, 6, 3),
+(7, 7, 4);
 
 -- --------------------------------------------------------
 
@@ -211,7 +234,6 @@ CREATE TABLE `tblmh48` (
 
 INSERT INTO `tblmh48` (`ID`, `TenMH`, `tblDongMH48ID`) VALUES
 (1, 'Iphone XS Max 2010', 1),
-(2, 'Iphone XS Max 2010', 1),
 (3, 'Samsung S22', 1),
 (4, 'Bphone X', 1),
 (5, 'Oppo Sharno', 1),
@@ -239,15 +261,22 @@ CREATE TABLE `tblmh_dt48` (
   `DonGiaMH` float NOT NULL,
   `LaiSuat` float NOT NULL,
   `tblDT48ID` int(10) NOT NULL,
-  `tblMH48ID` int(10) NOT NULL
+  `tblMH48ID` int(10) NOT NULL,
+  `soLuong` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tblmh_dt48`
 --
 
-INSERT INTO `tblmh_dt48` (`ID`, `DonGiaMH`, `LaiSuat`, `tblDT48ID`, `tblMH48ID`) VALUES
-(1, 10000000, 10, 5, 12);
+INSERT INTO `tblmh_dt48` (`ID`, `DonGiaMH`, `LaiSuat`, `tblDT48ID`, `tblMH48ID`, `soLuong`) VALUES
+(1, 10000000, 10, 5, 12, 1),
+(2, 10000000, 10, 4, 3, 1),
+(3, 10000000, 10, 4, 4, 1),
+(4, 20000000, 10, 4, 5, 1),
+(5, 10000000, 10, 4, 3, 1),
+(6, 10000000, 10, 4, 4, 1),
+(7, 50000000, 10, 6, 13, 1);
 
 -- --------------------------------------------------------
 
@@ -372,19 +401,19 @@ ALTER TABLE `tblhoadonchodt48`
 -- AUTO_INCREMENT for table `tblhoadonchokh48`
 --
 ALTER TABLE `tblhoadonchokh48`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tblhopdong48`
 --
 ALTER TABLE `tblhopdong48`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblhopdong_mhdt48`
 --
 ALTER TABLE `tblhopdong_mhdt48`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblkh48`
@@ -402,7 +431,7 @@ ALTER TABLE `tblmh48`
 -- AUTO_INCREMENT for table `tblmh_dt48`
 --
 ALTER TABLE `tblmh_dt48`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblnv48`

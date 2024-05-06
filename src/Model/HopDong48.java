@@ -9,22 +9,32 @@ public class HopDong48 {
     private int thoiHanVay;
     private NV48 nhanVien;
     private KH48 khachHang;
-    private ArrayList<HoaDonChoKH48> hoaDonChoKHs;
+    private HoaDonChoKH48 hoaDonChoKH;
     private MH_DT48 matHangDoiTac;
     private DT48 doiTac;
+    private MH48 matHang;
+
+    public MH48 getMatHang() {
+        return matHang;
+    }
+
+    public void setMatHang(MH48 matHang) {
+        this.matHang = matHang;
+    }
 
     public HopDong48() {
     }
 
-    public HopDong48(int id, Date ngayKi, int thoiHanVay, NV48 nhanVien, KH48 khachHang, ArrayList<HoaDonChoKH48> hoaDonChoKHs, MH_DT48 matHangDoiTac, DT48 doiTac) {
+    public HopDong48(int id, Date ngayKi, int thoiHanVay, NV48 nhanVien, KH48 khachHang, HoaDonChoKH48 hoaDonChoKHs, MH_DT48 matHangDoiTac, DT48 doiTac, MH48 matHang) {
         this.id = id;
         this.ngayKi = ngayKi;
         this.thoiHanVay = thoiHanVay;
         this.nhanVien = nhanVien;
         this.khachHang = khachHang;
-        this.hoaDonChoKHs = hoaDonChoKHs;
+        this.hoaDonChoKH = hoaDonChoKHs;
         this.matHangDoiTac = matHangDoiTac;
         this.doiTac = doiTac;
+        this.matHang = matHang;
     }
 
     public int getId() {
@@ -67,12 +77,12 @@ public class HopDong48 {
         this.khachHang = khachHang;
     }
 
-    public ArrayList<HoaDonChoKH48> getHoaDonChoKHs() {
-        return hoaDonChoKHs;
+    public HoaDonChoKH48 getHoaDonChoKH() {
+        return hoaDonChoKH;
     }
 
-    public void setHoaDonChoKHs(ArrayList<HoaDonChoKH48> hoaDonChoKHs) {
-        this.hoaDonChoKHs = hoaDonChoKHs;
+    public void setHoaDonChoKH(HoaDonChoKH48 hoaDonChoKHs) {
+        this.hoaDonChoKH = hoaDonChoKHs;
     }
 
     public MH_DT48 getMatHangDoiTac() {
